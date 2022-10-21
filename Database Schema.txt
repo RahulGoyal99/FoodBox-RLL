@@ -1,0 +1,94 @@
+Database Schema
+
+mysql> create database onlinefood4;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use onlinefood4;
+Database changed
+mysql> show tables;
++-----------------------+
+| Tables_in_onlinefood4 |
++-----------------------+
+| admin                 |
+| cart                  |
+| food                  |
+| payment               |
+| purchase              |
+| signup                |
++-----------------------+
+6 rows in set (0.01 sec)
+
+
+mysql>desc admin;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| id       | int          | NO   | PRI | NULL    | auto_increment |
+| email    | varchar(255) | YES  |     | NULL    |                |
+| password | varchar(255) | YES  |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+3 rows in set (0.02 sec)
+
+mysql>desc cart;
++------------+--------+------+-----+---------+-------+
+| Field      | Type   | Null | Key | Default | Extra |
++------------+--------+------+-----+---------+-------+
+| id         | bigint | NO   | PRI | NULL    |       |
+| price      | float  | NO   |     | NULL    |       |
+| quantity   | int    | NO   |     | NULL    |       |
+| product_id | int    | YES  | MUL | NULL    |       |
++------------+--------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql>desc food;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| id          | int          | NO   | PRI | NULL    | auto_increment |
+| category    | varchar(255) | YES  |     | NULL    |                |
+| cuisinename | varchar(255) | YES  |     | NULL    |                |
+| description | varchar(255) | YES  |     | NULL    |                |
+| foodname    | varchar(255) | YES  |     | NULL    |                |
+| offers      | int          | NO   |     | NULL    |                |
+| price       | float        | NO   |     | NULL    |                |
+| status      | varchar(255) | YES  |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+8 rows in set (0.00 sec)
+
+mysql>desc payment;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| id           | int          | NO   | PRI | NULL    | auto_increment |
+| address      | varchar(255) | YES  |     | NULL    |                |
+| amount       | float        | NO   |     | NULL    |                |
+| mobilenumber | bigint       | NO   |     | NULL    |                |
+| name         | varchar(255) | YES  |     | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+mysql> desc purchase;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| id            | bigint       | NO   | PRI | NULL    |       |
+| dop           | date         | YES  |     | NULL    |       |
+| productname   | varchar(255) | YES  |     | NULL    |       |
+| quantity      | int          | NO   |     | NULL    |       |
+| totalcost     | float        | NO   |     | NULL    |       |
+| transactionid | varchar(255) | YES  |     | NULL    |       |
+| signup_id     | int          | YES  | MUL | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> desc signup;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| id           | int          | NO   | PRI | NULL    | auto_increment |
+| address      | varchar(255) | YES  |     | NULL    |                |
+| email        | varchar(255) | YES  |     | NULL    |                |
+| mobilenumber | bigint       | NO   |     | NULL    |                |
+| name         | varchar(255) | YES  |     | NULL    |                |
+| password     | varchar(255) | YES  |     | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
